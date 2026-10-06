@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Yvonne Margaret S. Chi — BSCS Student Portfolio</title>
+  <meta name="description" content="Portfolio of Yvonne Margaret S. Chi, a second-year BS Computer Science student at CATSU. Browse her journey, skills, involvement, and projects.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+/* ==========================================================================
+   Yvonne Margaret S. Chi — Portfolio
+   Organized by section. Search the comment headers to jump to a part.
+   ========================================================================== */
+
+:root{
+  --asphalt: #0e0f13;
+  --chalk: #f5f5f7;
+  --chalk-dim: #b7bac2;
+  --red: #ff3b30;
+  --amber: #ffc400;
+  --green: #30d158;
+  --glass-bg: rgba(255,255,255,0.07);
+  --glass-bg-2: rgba(255,255,255,0.045);
+  --glass-border: rgba(255,255,255,0.18);
+  --gold: #d9b968;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --font-display: 'Titillium Web', var(--font-ui);
+  --header-height: 68px;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*,*::before,*::after{ box-sizing:inherit; }
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 12px);
+}
+body{
+  margin:0;
+  background:var(--asphalt);
+  color:var(--chalk);
+  font-family:var(--font-ui);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:-10%;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(150,45,45,.32), transparent 42%),
+    radial-gradient(circle at 88% 10%, rgba(180,140,60,.26), transparent 45%),
+    radial-gradient(circle at 25% 85%, rgba(40,110,90,.22), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(50,70,120,.24), transparent 42%);
+  filter: blur(100px) saturate(120%);
+  z-index:-2;
+  pointer-events:none;
+}
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:rgba(14,15,19,.35);
+  z-index:-1;
+  pointer-events:none;
+}
+::selection{ background:var(--red); color:#fff; }
+a{ color:inherit; }
+img{ max-width:100%; display:block; }
+
+/* ---------- Accessibility helpers ---------- */
+.skip-link{
+  position:fixed;
+  left:12px; top:-60px;
+  z-index:100;
+  background:var(--chalk);
+  color:var(--asphalt);
+  font-family:var(--font-ui);
+  font-weight:700;
+  font-size:14px;
+  padding:10px 16px;
+  border-radius:8px;
+  text-decoration:none;
+  transition:top .15s ease;
+}
+.skip-link:focus{ top:12px; }
+
+:focus-visible{
+  outline:2px solid var(--amber);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ---------- Site header / navigation ---------- */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(14,15,19,.55);
+  backdrop-filter:blur(26px) saturate(180%);
+  -webkit-backdrop-filter:blur(26px) saturate(180%);
+  border-bottom:1px solid var(--glass-border);
+}
+.site-nav{
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 20px;
+  height:var(--header-height);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.nav-brand{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-style:italic;
+  font-size:20px;
+  text-decoration:none;
+  color:var(--chalk);
+}
+.nav-toggle{
+  display:none;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  color:var(--chalk);
+  border-radius:10px;
+  width:40px; height:40px;
+  font-size:18px;
+  cursor:pointer;
+}
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:6px;
+  margin:0;
+  padding:0;
+}
+.nav-menu a{
+  display:inline-block;
+  padding:9px 12px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:13.5px;
+  color:var(--chalk-dim);
+  transition:background .2s ease, color .2s ease;
+  white-space:nowrap;
+}
+.nav-menu a:hover,
+.nav-menu a:focus-visible{
+  background:var(--glass-bg);
+  color:var(--chalk);
+}
+.nav-menu a[aria-current="page"]{
+  background:rgba(255,59,48,.5);
+  color:#fff;
+}
+
+@media (max-width:980px){
+  .nav-toggle{ display:block; }
+  .nav-menu{
+    position:absolute;
+    top:100%; left:0; right:0;
+    flex-direction:column;
+    gap:2px;
+    padding:10px 14px 16px;
+    background:rgba(14,15,19,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--glass-border);
+    display:none;
+  }
+  .nav-menu.is-open{ display:flex; }
+  .nav-menu a{ padding:12px 14px; border-radius:10px; }
+}
+
+/* ---------- Layout shell ---------- */
+.lane{
+  position:relative;
+  max-width:760px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  min-height:80vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:70px 24px 60px;
+  max-width:760px;
+  margin:0 auto;
+  text-align:left;
+}
+.lights{ display:flex; gap:14px; margin-bottom:36px; }
+.lights span{
+  width:16px; height:16px; border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  animation: lightUp 2.6s ease-in-out 1 both;
+}
+.lights span:nth-child(1){ animation-delay:.1s; }
+.lights span:nth-child(2){ animation-delay:.4s; }
+.lights span:nth-child(3){ animation-delay:.7s; }
+.lights span:nth-child(4){ animation-delay:1.0s; }
+.lights span:nth-child(5){ animation-delay:1.3s; }
+@keyframes lightUp{
+  0%{ background:rgba(255,255,255,.08); }
+  8%{ background:var(--red); box-shadow:0 0 14px rgba(255,59,48,.8); }
+  70%{ background:var(--red); box-shadow:0 0 14px rgba(255,59,48,.8); }
+  85%{ background:var(--green); box-shadow:0 0 10px rgba(48,209,88,.6); }
+  100%{ background:var(--green); box-shadow:0 0 10px rgba(48,209,88,.6); }
+}
+@media (prefers-reduced-motion: reduce){ .lights span{ animation:none; background:var(--green); } }
+
+.eyebrow{
+  display:inline-block;
+  font-weight:600;
+  letter-spacing:.12em;
+  font-size:12px;
+  color:var(--chalk);
+  background:var(--glass-bg);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  padding:6px 14px;
+  border-radius:999px;
+  margin:0 0 20px;
+  width:fit-content;
+}
+h1.name{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-style:italic;
+  font-size:clamp(2.4rem, 7vw, 4.8rem);
+  line-height:0.98;
+  margin:0 0 18px;
+  letter-spacing:-0.01em;
+}
+.tagline{
+  font-size:clamp(1.05rem, 2vw, 1.25rem);
+  color:var(--chalk-dim);
+  max-width:52ch;
+  line-height:1.55;
+  margin:0 0 32px;
+  font-weight:400;
+}
+.cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 24px;
+  font-weight:600; letter-spacing:.01em;
+  font-size:15px;
+  border-radius:999px;
+  text-decoration:none;
+  cursor:pointer;
+  backdrop-filter:blur(16px) saturate(180%);
+  -webkit-backdrop-filter:blur(16px) saturate(180%);
+  transition:background .2s ease, transform .2s ease;
+  border:none;
+}
+.btn:active{ transform:scale(.97); }
+.btn-primary{ background:rgba(255,59,48,.55); border:1px solid rgba(255,255,255,.3); color:#fff; box-shadow:0 8px 24px rgba(255,59,48,.25), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-primary:hover{ background:rgba(255,59,48,.7); }
+.btn-ghost{ border:1px solid var(--glass-border); color:var(--chalk); background:var(--glass-bg); box-shadow:inset 0 1px 0 rgba(255,255,255,.2); }
+.btn-ghost:hover{ background:rgba(255,255,255,.14); }
+
+/* ---------- Sections ---------- */
+.stops{ display:flex; flex-direction:column; gap:26px; padding-bottom:20px; }
+.stop{ position:relative; padding:10px 0; scroll-margin-top: calc(var(--header-height) + 12px); }
+
+.glass-card{
+  position:relative;
+  background:var(--glass-bg-2);
+  backdrop-filter:blur(34px) saturate(190%);
+  -webkit-backdrop-filter:blur(34px) saturate(190%);
+  border:1px solid var(--glass-border);
+  border-radius:30px;
+  padding:34px 32px 38px;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.45),
+    0 2px 0 rgba(255,255,255,.05),
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -18px 30px rgba(255,255,255,.03);
+  overflow:hidden;
+  transform:perspective(900px) rotateX(0deg) rotateY(0deg);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+  will-change:transform;
+}
+.glass-card::before{
+  content:'';
+  position:absolute; top:0; left:6%; right:6%; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
+}
+.glass-card::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.12) 45%, transparent 60%);
+  transform:translateX(-120%);
+  pointer-events:none;
+}
+.glass-card.sheen::after{ transition:transform .7s ease; transform:translateX(120%); }
+@media (max-width:640px){ .glass-card{ padding:26px 22px 30px; border-radius:24px; } }
+@media (prefers-reduced-motion: reduce){ .glass-card{ transition:none; } .glass-card.sheen::after{ transition:none; transform:translateX(120%); } }
+
+.about-grid{ display:flex; gap:28px; align-items:flex-start; }
+@media (max-width:640px){ .about-grid{ flex-direction:column; align-items:center; text-align:center; } }
+.profile-photo{
+  flex:none;
+  width:116px; height:116px;
+  border-radius:50%;
+  overflow:hidden;
+  border:1px solid var(--glass-border);
+  box-shadow:0 0 0 5px rgba(255,255,255,.05), 0 14px 30px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.3);
+  background:var(--glass-bg);
+}
+.profile-photo img,
+.profile-photo svg{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.board-label{
+  display:inline-block;
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.12em;
+  color:var(--asphalt);
+  background:var(--amber);
+  padding:5px 12px;
+  border-radius:999px;
+  margin-bottom:18px;
+}
+h2.stop-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(1.6rem, 4vw, 2.2rem);
+  margin:0 0 18px;
+}
+.stop p{
+  color:var(--chalk-dim);
+  line-height:1.65;
+  font-size:1rem;
+  max-width:62ch;
+  margin:0 0 14px;
+  font-weight:400;
+}
+
+/* Info grid */
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+  gap:12px;
+  margin:22px 0 0;
+  padding:0;
+}
+.info-item{
+  background:var(--glass-bg);
+  backdrop-filter:blur(18px) saturate(170%);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  padding:14px 16px;
+}
+.info-item dt{
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--chalk-dim);
+  margin:0 0 6px;
+}
+.info-item dd{
+  margin:0;
+  font-size:14.5px;
+  font-weight:600;
+  line-height:1.4;
+}
+
+.chip-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
+.chip{
+  font-size:12.5px; font-weight:600;
+  background:var(--glass-bg); border:1px solid var(--glass-border);
+  border-radius:999px; padding:6px 13px; color:var(--chalk-dim);
+}
+
+.group-heading{
+  font-family:var(--font-ui);
+  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--amber);
+  margin:24px 0 4px;
+}
+.stop .glass-card > .group-heading:first-of-type{ margin-top:22px; }
+
+.quote-banner{
+  max-width:600px;
+  margin:6px auto 0;
+  text-align:center;
+  padding:26px 30px;
+  background:var(--glass-bg);
+  backdrop-filter:blur(20px) saturate(170%);
+  -webkit-backdrop-filter:blur(20px) saturate(170%);
+  border:1px solid var(--glass-border);
+  border-radius:22px;
+}
+.quote-text{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:700;
+  font-size:clamp(1.05rem, 2.4vw, 1.3rem);
+  line-height:1.4;
+  margin:0 0 10px;
+  color:var(--chalk);
+}
+.quote-attr{ margin:0; font-size:13px; color:var(--amber); font-weight:600; }
+
+/* Skills */
+.tyres{ display:grid; gap:18px; margin:26px 0 0; padding:0; list-style:none; max-width:520px; }
+.tyre-row{ display:grid; grid-template-columns:120px 1fr 40px; align-items:center; gap:14px; }
+.tyre-name{ font-weight:600; font-size:14px; }
+.tyre-track{ display:block; height:8px; background:rgba(255,255,255,.1); border-radius:4px; overflow:hidden; }
+.tyre-fill{ display:block; height:100%; border-radius:4px; background:linear-gradient(90deg, var(--red), var(--amber)); width:0%; transition:width 1.1s cubic-bezier(.2,.8,.2,1); }
+.tyre-pct{ font-weight:700; font-size:13px; color:var(--chalk-dim); text-align:right; }
+
+/* Projects */
+.results{ display:grid; gap:12px; margin:22px 0 0; padding:0; list-style:none; }
+.result-row{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  gap:16px;
+  align-items:start;
+  padding:18px 20px;
+  background:var(--glass-bg);
+  backdrop-filter:blur(18px) saturate(170%);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);
+  border:1px solid var(--glass-border);
+  border-left:3px solid var(--red);
+  border-radius:16px;
+}
+.pos{ font-family:var(--font-display); font-weight:900; font-style:italic; font-size:19px; color:var(--amber); }
+.result-row h3{ font-size:16.5px; font-weight:600; margin:0 0 6px; }
+.result-row p{ margin:0; font-size:14px; }
+.result-row .stack{ font-size:11.5px; font-weight:600; color:var(--amber); letter-spacing:.05em; margin-top:8px; }
+.lap-time{ font-weight:700; font-size:12.5px; color:var(--chalk-dim); white-space:nowrap; }
+
+/* Timeline / lists (journey, involvement, achievements) */
+.standings{ margin:22px 0 0; padding:0; list-style:none; border-top:1px solid rgba(255,255,255,.12); }
+.standing-row{ display:grid; grid-template-columns:1fr auto; gap:12px; padding:16px 4px; border-bottom:1px solid rgba(255,255,255,.12); }
+.standing-role{ font-weight:600; font-size:16px; margin:0; }
+.standing-org{ color:var(--chalk-dim); font-size:14px; margin:2px 0 0; }
+.standing-years{ font-weight:700; font-size:12.5px; color:var(--gold); white-space:nowrap; }
+
+/* Contact */
+.radio{ margin-top:22px; display:grid; gap:10px; max-width:420px; }
+.radio a{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 18px;
+  background:var(--glass-bg);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:background .2s ease;
+}
+.radio a:hover{ background:rgba(255,255,255,.13); }
+.radio a span.arrow{ color:var(--amber); }
+
+.contact-form{ margin-top:28px; display:grid; gap:16px; max-width:460px; }
+.form-field{ display:flex; flex-direction:column; gap:6px; }
+.form-field label{ font-size:13px; font-weight:600; color:var(--chalk-dim); }
+.form-field input,
+.form-field textarea{
+  font-family:var(--font-ui);
+  font-size:15px;
+  color:var(--chalk);
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:12px;
+  padding:12px 14px;
+  resize:vertical;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{ color:rgba(245,245,247,.4); }
+.form-note{ font-size:12.5px; color:rgba(245,245,247,.5); margin:0; }
+
+footer{
+  text-align:left; padding:40px 24px 60px; max-width:760px; margin:0 auto;
+  color:var(--chalk-dim); font-size:13px;
+}
+.note{
+  max-width:760px; margin:0 auto; padding:14px 24px 0;
+  font-size:12.5px; color:rgba(245,245,247,.45);
+}
+
+/* ---------- Live timing sidebar ---------- */
+.telemetry{
+  position:fixed;
+  z-index:5;
+  background:var(--glass-bg-2);
+  backdrop-filter:blur(30px) saturate(190%);
+  -webkit-backdrop-filter:blur(30px) saturate(190%);
+  border:1px solid var(--glass-border);
+  box-shadow:0 16px 48px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.3);
+  color:var(--chalk);
+}
+@media (min-width:1100px){
+  .telemetry{
+    right:28px; top:50%; transform:translateY(-50%);
+    width:196px; border-radius:20px; padding:20px 20px 22px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+}
+@media (max-width:1099px){
+  .telemetry{
+    left:12px; right:12px; bottom:12px;
+    border-radius:18px; padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .telemetry-driver{ display:none; }
+}
+.telemetry-header{ display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--chalk-dim); }
+.telemetry-header .dot{ width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 8px rgba(255,59,48,.8); animation:blinkDot 1.6s ease-in-out infinite; }
+@keyframes blinkDot{ 0%,100%{opacity:1;} 50%{opacity:.55;} }
+@media (prefers-reduced-motion: reduce){ .telemetry-header .dot{ animation:none; } }
+.telemetry-driver{ display:flex; align-items:baseline; gap:8px; }
+.telemetry-driver .tnum{ font-family:var(--font-display); font-weight:900; font-style:italic; font-size:22px; color:var(--amber); }
+.telemetry-driver .tname{ font-weight:700; font-size:14px; letter-spacing:.02em; }
+.telemetry-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:12.5px; }
+.telemetry-row .label{ color:var(--chalk-dim); letter-spacing:.06em; text-transform:uppercase; font-size:10px; font-weight:600; }
+.telemetry-row .value{ font-weight:600; }
+.telemetry-row .value.mono{ font-variant-numeric:tabular-nums; }
+.tyre-chip{ display:flex; align-items:center; gap:6px; }
+.tyre-dot{ width:12px; height:12px; border-radius:50%; border:2px solid rgba(255,255,255,.55); flex:none; }
+.tyre-dot.soft{ background:var(--red); }
+.tyre-dot.medium{ background:var(--amber); }
+.tyre-dot.hard{ background:#fff; }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Sample "live timing" widget — decorative, not real telemetry data -->
+  <aside class="telemetry" id="telemetry" aria-label="Sample live timing widget">
+    <div class="telemetry-header"><span class="dot" aria-hidden="true"></span>LIVE TIMING</div>
+    <div class="telemetry-driver"><span class="tnum">29</span><span class="tname">YVONNE MARGARET S. CHI</span></div>
+    <div class="telemetry-row"><span class="label">Sector</span><span class="value" id="telSector">Formation Lap</span></div>
+    <div class="telemetry-row">
+      <span class="label">Tyre</span>
+      <span class="value tyre-chip"><span class="tyre-dot soft" id="telTyreDot" aria-hidden="true"></span><span id="telTyreName">Soft</span></span>
+    </div>
+    <div class="telemetry-row"><span class="label">Session</span><span class="value mono" id="telTimer">00:00</span></div>
+  </aside>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="nav-brand" href="#top">Yvonne Margaret S. Chi</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation menu">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#involvement">Involvement</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#whats-next">Next</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="lights" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="eyebrow">PORTFOLIO — 2026 | 2027 SEASON</p>
+    <h1 class="name">Yvonne Margaret S. Chi</h1>
+    <p class="tagline">Second-year BS Computer Science student at Catanduanes State University — learning to build, create, serve, and keep moving forward.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">Explore my journey</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <main id="main-content">
+    <div class="lane">
+      <div class="stops">
+
+        <section class="stop" id="about" aria-labelledby="about-heading">
+          <div class="glass-card">
+            <div class="about-grid">
+              <div class="profile-photo">
+                <!-- Placeholder avatar. To use a real photo, replace this <svg> with:
+                     <img src="your-photo.jpg" alt="Portrait of Yvonne Margaret S. Chi"> -->
+                <img src="project.html.jpg" alt="My Portrait" xmlns>
+                  <defs>
+                    <linearGradient id="avatarBg" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#2a2d33"/>
+                      <stop offset="100%" stop-color="#16181c"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="200" height="200" fill="url(#avatarBg)"/>
+                  <circle cx="100" cy="82" r="38" fill="#3a3e46"/>
+                  <path d="M30 190c8-46 46-70 70-70s62 24 70 70z" fill="#3a3e46"/>
+                </svg>
+              </div>
+              <div>
+                <span class="board-label">Student profile</span>
+                <h2 class="stop-title" id="about-heading">About me</h2>
+                <p>I’m Yvonne Margaret S. Chi, a second-year BS Computer Science student at Catanduanes State University. 
+                <p>I enjoy art, music, photography, video editing, and poetry, while continuing to explore programming and technology. I’m also passionate about leadership, creativity, and learning through experience.
+                <p>I’m still discovering where my skills can take me, but I’m always willing to learn, create, and grow.</p>
+                <div class="chip-row">
+                  <span class="chip">CS</span>
+                  <span class="chip">Art</span>
+                  <span class="chip">Music</span>
+                  <span class="chip">F1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stop" id="journey" aria-labelledby="journey-heading">
+          <div class="glass-card">
+            <span class="board-label">Road to the grid</span>
+            <h2 class="stop-title" id="journey-heading">Academic journey</h2>
+            <p>Every driver has a career ladder — karting, then F4, F3, F2, before F1. Here's mine.</p>
+            <ul class="standings">
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">Elementary</h3>
+                  <p class="standing-org">Cabugao Integrated School</p>
+                  <p class="standing-desc">My early years introduced me to storytelling, singing, and Rondalla, where I discovered my love for creativity and music.</p>
+                </div>
+                <span class="standing-years">2013 — 2019</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">Junior High School</h3>
+                  <p class="standing-org">Cabugao Integrated School</p>
+                  <p class="standing-desc">My scouting journey taught me discipline, teamwork, responsibility, and the value of growing through new experiences.</p>
+                </div>
+                <span class="standing-years">2019 — 2023</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">Senior High School — ABM</h3>
+                  <p class="standing-org">Cabugao Integrated School</p>
+                  <p class="standing-desc">I found meaningful friendships, faced new challenges, and grew into a student leader through my two years of service as an SSLG Vice President.</p>
+                </div>
+                <span class="standing-years">2023 — 2025</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">College — BS Computer Science</h3>
+                  <p class="standing-org">Catanduanes State University (CATSU), CICT</p>
+                  <p class="standing-desc">Now pursuing Computer Science at Catanduanes State University, I continue to learn, lead, create, and discover where my journey will take me.</p>
+                </div>
+                <span class="standing-years">2025 — Present</span>
+              </li>
+            </ul>
+            <dl class="info-grid" style="margin-top:18px;">
+              <div class="info-item"><dt>Year level</dt><dd>2nd Year</dd></div>
+              <div class="info-item"><dt>Season</dt><dd>A.Y. 2026 – 2027</dd></div>
+              <div class="info-item"><dt>Status</dt><dd>Kulang sa Tulog</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <aside class="quote-banner">
+          <p class="quote-text">"Being second is to be the first of the ones who lose."</p>
+          <p class="quote-attr">— Ayrton Senna</p>
+        </aside>
+
+        <section class="stop" id="skills" aria-labelledby="skills-heading">
+          <div class="glass-card">
+            <span class="board-label">Car setup</span>
+            <h2 class="stop-title" id="skills-heading">Under the Hood</h2>
+            <p>What's under the hood — rated by how much time I've put in with each.</p>
+            <ul class="tyres">
+              <li class="tyre-row">
+                <span class="tyre-name">HTML5</span>
+                <span class="tyre-track"><span class="tyre-fill" data-pct="30"></span></span>
+                <span class="tyre-pct">30%</span>
+              </li>
+              <li class="tyre-row">
+                <span class="tyre-name">CSS3</span>
+                <span class="tyre-track"><span class="tyre-fill" data-pct="40"></span></span>
+                <span class="tyre-pct">40%</span>
+              </li>
+              <li class="tyre-row">
+                <span class="tyre-name">JavaScript</span>
+                <span class="tyre-track"><span class="tyre-fill" data-pct="20"></span></span>
+                <span class="tyre-pct">20%</span>
+              </li>
+              <li class="tyre-row">
+                <span class="tyre-name">Accessibility</span>
+                <span class="tyre-track"><span class="tyre-fill" data-pct="5"></span></span>
+                <span class="tyre-pct">5%</span>
+              </li>
+              <li class="tyre-row">
+                <span class="tyre-name">Project Organization</span>
+                <span class="tyre-track"><span class="tyre-fill" data-pct="5"></span></span>
+                <span class="tyre-pct">5%</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="stop" id="involvement" aria-labelledby="involvement-heading">
+          <div class="glass-card">
+            <span class="board-label">Off track</span>
+            <h2 class="stop-title" id="involvement-heading">Involvement</h2>
+            <p>What I'm part of outside coursework, and the roles I've taken on along the way.</p>
+
+            <h3 class="group-heading">Organizations</h3>
+            <ul class="standings">
+              <li class="standing-row">
+                <div>
+                  <h4 class="standing-role">CATSU VANGUARD Society</h4>
+                  <p class="standing-org"></p>
+                </div>
+                <span class="standing-years">Present</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h4 class="standing-role">CATSU Youth Empowerment Society (YES)</h4>
+                  <p class="standing-org"></p>
+                </div>
+                <span class="standing-years">Present</span>
+              </li>
+            </ul>
+
+            <h3 class="group-heading">Leadership</h3>
+            <ul class="standings">
+              <li class="standing-row">
+                <div>
+                  <h4 class="standing-role">Executive Secretary</h4>
+                  <p class="standing-org">CATSU VANGUARD Society</p>
+                </div>
+                <span class="standing-years">2026 — 2027</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h4 class="standing-role">CICT Representative</h4>
+                  <p class="standing-org">CATSU Youth Empowerment Society (YES)</p>
+                </div>
+                <span class="standing-years">2026 — 2027</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="stop" id="projects" aria-labelledby="projects-heading">
+          <div class="glass-card">
+            <span class="board-label">Race highlights</span>
+            <h2 class="stop-title" id="projects-heading">Projects</h2>
+            <ul class="results">
+              <li class="result-row">
+                <span class="pos" aria-hidden="true">P1</span>
+                <div>
+                  <h3>Personal Portfolio Website</h3>
+                  <p>I’m building this portfolio website to bring together my journey as a Computer Science student, my creative interests, and the experiences that have shaped me. I’m designing and developing it myself while learning more about web development, responsive design, and interactive interfaces.</p>
+                  <p class="stack">HTML5 · CSS3 · JavaScript</p>
+                </div>
+                <span class="lap-time">2026 — In Progress</span>
+              </li>
+              <li class="result-row">
+                <span class="pos" aria-hidden="true">P2</span>
+                <div>
+                  <h3>Poetry & Music</h3>
+                  <p>I use poetry and music as two of my favorite ways to express myself. I write poems that reflect my thoughts, experiences, and emotions, while music and covers allow me to explore performance and creativity in a different way.</p>
+                  <p class="stack">Poetry · Creative Writing · Singing · Music</p>
+                </div>
+                <span class="lap-time">Ongoing</span>
+              </li>
+              <li class="result-row">
+                <span class="pos" aria-hidden="true">P3</span>
+                <div>
+                  <h3>Leadership & Organization Work</h3>
+                  <p>I’m continuing to grow as a student leader through my involvement in university organizations. I’m learning to contribute ideas, communicate with others, take responsibility, and turn plans into meaningful activities and experiences for the community.</p>
+                  <p class="stack">Leadership · Teamwork · Communication · Project Planning</p>
+                </div>
+                <span class="lap-time">2026 — Ongoing</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="stop" id="achievements" aria-labelledby="achievements-heading">
+          <div class="glass-card">
+            <span class="board-label">Podium finishes</span>
+            <h2 class="stop-title" id="achievements-heading">Achievements</h2>
+            <p>Notable results and recognitions — this is where the trophies go.</p>
+            <ul class="standings">
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">Governor Joseph C. Cua — Outstanding Leadership Award</h3>
+                  <p class="standing-org">Recognition for outstanding leadership and service.</p>
+                </div>
+                <span class="standing-years">2025</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">Mutyang Catandungan — 1st Place</h3>
+                  <p class="standing-org">Singing competition that became one of my earliest memorable achievements.</p>
+                </div>
+                <span class="standing-years">Grade 3</span>
+              </li>
+              <li class="standing-row">
+                <div>
+                  <h3 class="standing-role">SSLG Club Achievement Award</h3>
+                  <p class="standing-org">Recognition for my contributions and service as an SSLG Vice President.</p>
+                </div>
+                <span class="standing-years">2023–2025</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="stop" id="whats-next" aria-labelledby="next-heading">
+          <div class="glass-card">
+            <span class="board-label">Next on the calendar</span>
+            <h2 class="stop-title" id="next-heading">What's next</h2>
+            <p>The next few laps on the plan.</p>
+            <dl class="info-grid">
+              <div class="info-item"><dt>Soon</dt><dd>Finishing projects and gaining experience.</dd></div>
+              <div class="info-item"><dt>Learning now</dt><dd>Growing my coding &amp; leadership.</dd></div>
+              <div class="info-item"><dt>Long term</dt><dd>Becoming a data analyst, hopefully.</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="stop" id="contact" aria-labelledby="contact-heading">
+          <div class="glass-card">
+            <span class="board-label">Team radio</span>
+            <h2 class="stop-title" id="contact-heading">Get in touch</h2>
+            <p>Box box — let's talk. Fastest way to reach me is email, or use the form below.</p>
+
+            <div class="radio">
+              <a href="mailto:yvonne@example.com">Email <span class="arrow" aria-hidden="true">→</span></a>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">→</span></a>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow" aria-hidden="true">→</span></a>
+              <a href="#">Resume (PDF) <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit" style="width:fit-content;">Send message</button>
+              <p class="form-note" id="formStatus" role="status"></p>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <p class="note">Sample layout with placeholder content — replace with your real name, skills, projects, and experience.</p>
+  <footer>
+    <p>© 2026 Yvonne Margaret S. Chi. Built for pit lane, not the paddock.</p>
+  </footer>
+
+  <script>
+// ==========================================================================
+// Yvonne Margaret S. Chi — Portfolio
+//   1. Mobile navigation toggle
+//   2. Active nav-link highlighting on scroll
+//   3. Skill bar reveal animation
+//   4. Live-timing sidebar (sample/decorative telemetry widget)
+//   5. Liquid-glass card tilt
+//   6. Contact form (front-end only demo)
+// ==========================================================================
+
+(function () {
+  "use strict";
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* 1. Mobile navigation toggle */
+  var navToggle = document.getElementById("navToggle");
+  var navMenu = document.getElementById("navMenu");
+
+  function closeMenu() {
+    navMenu.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = navMenu.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  /* 2. Active nav-link highlighting */
+  var sections = document.querySelectorAll(".stop[id]");
+  var navLinks = document.querySelectorAll(".nav-menu a[href^='#']");
+
+  function setActiveLink() {
+    var scrollPos = window.scrollY + 120;
+    var currentId = null;
+
+    sections.forEach(function (section) {
+      if (section.offsetTop <= scrollPos) {
+        currentId = section.id;
+      }
+    });
+
+    navLinks.forEach(function (link) {
+      var targetId = link.getAttribute("href").replace("#", "");
+      if (targetId === currentId) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", function () {
+    requestAnimationFrame(setActiveLink);
+  }, { passive: true });
+  setActiveLink();
+
+  /* 3. Skill bar reveal (fills once the Skills section enters view) */
+  var tyreFills = document.querySelectorAll(".tyre-fill");
+  var skillsSection = document.getElementById("skills");
+  var filled = false;
+
+  function fillTyres() {
+    if (filled) return;
+    filled = true;
+    tyreFills.forEach(function (el) {
+      el.style.width = el.getAttribute("data-pct") + "%";
+    });
+  }
+
+  if ("IntersectionObserver" in window && !reduceMotion && skillsSection) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) fillTyres();
+      });
+    }, { threshold: 0.3 });
+    io.observe(skillsSection);
+  } else {
+    fillTyres();
+  }
+
+  /* 4. Live-timing sidebar (sample data only — not a real timing feed) */
+  var telSector = document.getElementById("telSector");
+  var telTyreDot = document.getElementById("telTyreDot");
+  var telTyreName = document.getElementById("telTyreName");
+  var telTimer = document.getElementById("telTimer");
+
+  var compounds = [
+    { cls: "soft", name: "Soft" },
+    { cls: "medium", name: "Medium" },
+    { cls: "soft", name: "Soft" },
+    { cls: "hard", name: "Hard" },
+    { cls: "medium", name: "Medium" }
+  ];
+  var stops = document.querySelectorAll(".stop");
+
+  function updateTelemetry() {
+    if (!telSector) return;
+    var refY = window.scrollY + window.innerHeight * 0.4;
+    var idx = -1;
+
+    stops.forEach(function (stop, i) {
+      var top = stop.getBoundingClientRect().top + window.scrollY;
+      if (refY >= top - 40) idx = i;
+    });
+
+    if (idx === -1) {
+      telSector.textContent = "Formation Lap";
+      telTyreDot.className = "tyre-dot soft";
+      telTyreName.textContent = "Soft";
+      return;
+    }
+
+    var label = stops[idx].querySelector(".board-label");
+    telSector.textContent = label ? label.textContent : "Sector " + (idx + 1);
+
+    var compound = compounds[idx % compounds.length];
+    telTyreDot.className = "tyre-dot " + compound.cls;
+    telTyreName.textContent = compound.name;
+  }
+
+  window.addEventListener("scroll", function () {
+    requestAnimationFrame(updateTelemetry);
+  }, { passive: true });
+  updateTelemetry();
+
+  var sessionStart = Date.now();
+  function tickTimer() {
+    if (!telTimer) return;
+    var elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+    var m = Math.floor(elapsed / 60);
+    var s = elapsed % 60;
+    telTimer.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+  }
+  tickTimer();
+  setInterval(tickTimer, 1000);
+
+  /* 5. Liquid-glass tilt (skipped on touch devices and for reduced motion) */
+  var isTouch = window.matchMedia("(hover: none)").matches;
+  if (!reduceMotion && !isTouch) {
+    document.querySelectorAll(".glass-card").forEach(function (card) {
+      card.addEventListener("mouseenter", function () {
+        card.classList.add("sheen");
+      });
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          "perspective(900px) rotateX(" + (py * -4) + "deg) rotateY(" + (px * 5) + "deg)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+        setTimeout(function () { card.classList.remove("sheen"); }, 250);
+      });
+    });
+  }
+
+  /* 6. Contact form — front-end only for now */
+  var contactForm = document.getElementById("contactForm");
+  var formStatus = document.getElementById("formStatus");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      formStatus.textContent =
+        "Thanks! This form is a front-end demo for now — messages aren't sent yet.";
+    });
+  }
+})();
+  </script>
+</body>
+</html>
